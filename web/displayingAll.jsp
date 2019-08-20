@@ -1,7 +1,7 @@
 <%-- 
     Document   : displayingAll
     Created on : Nov 6, 2018, 4:34:57 PM
-    Author     : ouri
+    Author     : ouri alkada
 --%>
 
 <%@page import="java.io.FileReader"%>
