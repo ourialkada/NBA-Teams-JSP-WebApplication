@@ -11,7 +11,7 @@
 
 
 <%
-        String csvFile = "/Users/livecare/NetBeansProjects/testingjsp/web/nba.csv";
+        String csvFile = "/Users/user/NetBeansProjects/testingjsp/web/nba.csv";
         BufferedReader br = null;
         String line = "";
         String cvsSplitBy = ",";
