@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+         <title>NBA Display</title>
+         <link rel="stylesheet" href="cssFile.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <script type="text/javascript">
+         function display(s)
+            {
+                var fileName = "";
+                
+                switch(s)
+                {
+                    case "All": 
+                        fileName = "displayingAll.jsp";
+                        break;
+                    case "Old":
+                        fileName = "displayingOld.jsp";
+                        break;
+                    case "New": 
+                        fileName= "displayingNew.jsp";
+                        break;
+                }
+
+                 if(window.XMLHttpRequest) serverAgent = new XMLHttpRequest();
+               else (serverAgent=new ActiveXObject("Microsoft.XMLHttp"));
+    
+                serverAgent.open("GET",fileName,true);
+                serverAgent.send(null);
+        
+        serverAgent.onreadystatechange=function()
+        {
+           
+            if(serverAgent.readyState===4 && serverAgent.status===200)
+            {
+                var serverData=serverAgent.responseText;
+                document.getElementById("output").innerHTML=serverData;
+            }
+        }
+        
+        
+    }
+        
+        </script>
+       
+    </head>
+    <body>
+       
+        <div id="header">
+            <h1 id="headerTitle">NBA Teams Display</h1>
+        </div>
+        
+        <div class="fullWidth" style="justify-content:center;align-items:center;">
+            
+            <div style="border-color: black;border-width: 1px">
+                <table>
+                    <tr style="font-size: 25px">
+                        <th colspan="3" align="center">We can display NBA Teams in these ways </th>
+                    </tr>
+                    <tr>
+                        <td>Display All Teams</td>
+                        <td>Display New Teams</td>
+                        <td>Display Old Teams</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div id="output" class="output"></div>
+        
+        <div class = "fullWidth" >
+        <Button class="box" onclick="display('All')">
+            Click here to Display all information on all teams
+        </Button>
+       <Button class="box" onclick="display('New')">
+            Click here to  Display the top five most recently founded teams information on all teams
+        </Button>
+        <Button class="box" onclick="display('Old')">
+            Click here to Display the top  5 oldest teams
+        </Button>
+           
+            
+             </div>
+
+         
+    </body>
+</html>
